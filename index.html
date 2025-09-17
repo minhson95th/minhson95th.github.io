@@ -1,212 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!-- Head: Basic Setup -->
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Viwaco App - Privacy Policy</title>
+<!-- Head: Basic Setup -->
 
-        <!-- STYLES: Layout & Design -->
-        <style>
-            /* Global Style for entire page */
-            body {
-                font-family: sans-serif;
-                text-align: center;
-                margin: 0;
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viwaco App</title>
+
+    <!-- STYLES: Layout & Design -->
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+            background: #081621;
+        }
+
+        @property --pulse {
+            syntax: '<length>';
+            inherits: false;
+            initial-value: 80px;
+        }
+
+        @property --pulse2 {
+            syntax: '<length>';
+            inherits: false;
+            initial-value: 56px;
+        }
+
+        @property --r {
+            syntax: '<angle>';
+            inherits: false;
+            initial-value: 0deg;
+        }
+
+        img {
+            background: red;
+            width: 100px;
+            height: 100px;
+        }
+
+        .earth {
+            position: relative;
+            width: 600px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background-image: url('https://i.postimg.cc/9QCCCVsQ/earth.png');
+            background-repeat: repeat-x;
+            background-size: cover;
+            animation: earth 40s linear infinite, pulse 2s linear infinite alternate-reverse;
+            box-shadow: 0 -1px 1px 1px white,
+                -1px 1px 1px 1px #64BEC8,
+                0 0 var(--pulse) -20px #64BEC8,
+                inset 0 0 76px -10px #64BEC8,
+                inset 0 0 var(--pulse2) -10px #64BEC8;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                left: 70px;
+                height: 10px;
+                border-radius: 45%;
+                filter: blur(12px);
+                transform: rotate(var(--r));
+                animation: rotation 10s linear infinite;
             }
 
-            /* Navigation Section Style */
-            nav {
-                background-color: #f5f5f5;
-                padding: 20px;
-                text-align: right;
+            &:before {
+                width: 14%;
+
+                box-shadow: inset 0 0 70px 90px #A47478,
+                    0 0 140px 70px #A47478;
             }
 
-            /* Navigation Link Style */
-            nav a {
-                margin: 10px;
-                color: #686868;
-                text-decoration: none;
+            &:after {
+                width: 7%;
+                height: 10px;
+                box-shadow: inset 0 0 70px -50px white,
+                    inset 0 0 70px 90px #E5BC77,
+                    0 0 130px 50px #E5BC77;
+            }
+        }
+
+        @keyframes earth {
+            0% {
+                background-position: 0 0;
             }
 
-            /* Header Section Style */
-            header {
-                background-color: #f5f5f5;
-                padding: 100px;
+            100% {
+                background-position: -199% 0;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                --pulse: 8rem;
+                --pulse2: 5.6rem;
+                --r: 0deg;
+
             }
 
-            /* Heading Style */
-            header h1 {
-                font-size: 3.5rem;
+            100% {
+                --pulse: 10rem;
+                --pulse2: 3.6rem;
+                --r: 180deg;
+            }
+        }
+
+        @keyframes rotation {
+            from {
+                --r: 0deg;
             }
 
-            /* Subheading Style */
-            header h2 {
-                font-size: 1.25rem;
-                font-weight: 400;
-                color: #666;
-                margin-bottom: 60px;
+            to {
+                --r: 180deg;
             }
+        }
+    </style>
+</head>
 
-            /* Button Style */
-            header a {
-                background-color: #2A2A2A;
-                color: #ffffff;
-                padding: 16px;
-                text-decoration: none;
-                border-radius: 12px;
-            }
 
-            /* Main Content Style */
-            main {
-                padding: 20px;
-                text-align: left;
-                max-width: 800px;
-                margin: auto;
-                line-height: 1.5;
-            }
+<body>
+    <div
+        class="earth absolute right-0 bottom-[10rem] size-[60rem] rounded-[50%]
+        before:absolute before:top-[6rem] before:left-[7rem] before:w-[14%] before:h-[1rem] before:rounded-[45%] before:blur-[1.2rem]
+        after:absolute after:top-[0rem] after:left-[33rem] after:w-[7%] after:h-[1rem] after:rounded-[45%] after:blur-[1.2rem]">
+    </div>
 
-            main section {
-                margin-bottom: 50px;
-            }
-
-        </style>
-    </head>
-
-    <!-- Body: The Content -->
-    <body>
-        <!-- Navigation Section -->
-        <nav>
-            <!-- Nav Links -->
-            <!-- <a href="index.html">Home</a>
-            <a href="privacy-policy.html">Privacy Policy</a> -->
-        </nav>
-
-        <!-- Header Section -->
-        <header>
-            <!-- Heading -->
-            <h1>Privacy Policy</h1>
-            <!-- Subheading-->
-            <h2>Effective Date: September 23, 2025</h2>
-        </header>
-
-        <!-- Main Content Section -->
-        <main>
-            <!-- Section 1: Introduction -->
-            <section>
-                <h2>1. Introduction</h2>
-                <p>
-                    Welcome to Viwaco App ("we," "us," or "our"), a GIS app.
-                    By using Viwaco App, you agree to this Privacy Policy, which explains how we
-                    collect, use, and share your personal data.
-                </p>
-            </section>
-
-            <!-- Section 2: Information We Collect -->
-            <section>
-                <h2>2. Information We Collect </h2>
-                <ul>
-                    <!-- Account Information -->
-                    <li>
-                        Account Info: Email address or authentication tokens from Google/Apple, plus any optional username you provide.
-                    </li>
-                    <!-- User Content -->
-                    <li>
-                        User Content: Any text posts or comments you submit, which may be publicly visible to other users.
-                    </li>
-                    <!-- Firebase Usage -->
-                    <li>
-                        Firebase: We use Firebase for simple database and authentication, which may involve collecting data as described above.
-                    </li>
-                </ul>
-            </section>
-
-            <!-- Section 3: How We Use Your Information -->
-            <section>
-                <h2>3. How We Use Your Information</h2>
-                <ul>
-                    <li>
-                        Providing the Service: Authenticating your account and displaying your posts or comments.   
-                    </li>
-                    <li>
-                        Security: Monitoring for unauthorized access and ensuring the App's integrity. 
-                    </li>
-                    <li>
-                        Improvements: Analyzing usage trends (e.g., crash reports) to enhance features and user experience.
-                    </li>
-                </ul>
-            </section>
-
-            <!-- Section 4: Data Sharing and Disclosure -->
-            <section>
-                <h2>4. Data Sharing and Disclosure</h2>
-                <ul>
-                <li>
-                    Service Providers: We share data with Firebase and other trusted partners who help operate our App. They only access your data to perform tasks on our behalf.
-                </li>
-                <li>
-                    Authentication Providers: If you sign in via Google or Apple, we share relevant data with them to verify your identity.
-                </li>
-                <li>
-                    Legal Compliance: We may disclose data if required by law or to protect our rights and the safety of others.
-                </li>
-                </ul>
-            </section>
-
-            <!-- Section 5: Data Storage and Security -->
-            <section>
-                <h2>5. Data Storage and Security</h2>
-                <ul>
-                <li>
-                    Cloud Servers: We store your data on secure servers with industry-standard protections.
-                </li>
-                <li>
-                    Retention: We keep your information as long as your account is active or necessary for our operations. You can request deletion at any time (subject to any legal obligations to retain certain data).
-                </li>
-                <li>
-                    Breach Response: In the event of a data breach, we will notify affected users and comply with applicable laws.
-                </li>
-                </ul>
-            </section>
-
-            <!-- Section 6: Your Rights -->
-            <section>
-                <h2>6. Your Rights</h2>
-                <p>
-                Depending on your location, you may have rights to access, update, or delete your personal data.
-                To make a request, email us at support@viwaco.app.
-                </p>
-            </section>
-
-            <!-- Section 7: Children's Privacy -->
-            <section>
-                <h2>7. Children's Privacy</h2>
-                <p>
-                Viwaco App is not intended for children under 13. We do not knowingly collect information from children under 13.
-                If you believe we have inadvertently collected such information, please contact us so we can delete it promptly.
-                </p>
-            </section>
-
-            <!-- Section 8: Changes to This Privacy Policy -->
-            <section>
-                <h2>8. Changes to This Privacy Policy</h2>
-                <p>
-                We may update this Policy from time to time.
-                If we make material changes, we'll notify you (e.g., by posting a new policy in the App or sending an email).
-                Your continued use of Viwaco App indicates your acceptance of the updated Policy.
-                </p>
-            </section>
-
-            <!-- Section 9: Contact Us -->
-            <section>
-                <h2>9. Contact Us</h2>
-                <p>
-                If you have questions or concerns, please email us at support@viwaco.app.
-                </p>
-            </section>
-        </main>
-
-    </body>
+</body>
 
 </html>
